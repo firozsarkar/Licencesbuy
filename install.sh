@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Usage:
-# bash install.sh cpanel
-# bash install.sh litespeed
-
 SERVICE=$1
-
 BASE_URL="https://raw.githubusercontent.com/firozsarkar/Licencesbuy/refs/heads/main"
 
 if [ -z "$SERVICE" ]; then
@@ -83,10 +78,17 @@ case "$SERVICE" in
     bash <(curl -s $BASE_URL/virtualizor.sh)
     ;;
 
+  hostname)
+    bash <(curl -s $BASE_URL/Hostname.sh)
+    ;;
+
+  leetssl)
+    bash <(curl -s $BASE_URL/leetssl.sh)
+    ;;
+
   *)
     echo "Invalid service name!"
-    echo "Available services:"
-    echo "cpanel, litespeed, cloudlinux, imunify360, wp2, softaculous, sitepad, plesk, cpguard, cxs, osm, dareseller, directadmin, whmreseller, jetbackup, whmsonic, virtualizor"
+    echo "Available services: cpanel, litespeed, cloudlinux, imunify360, wp2, softaculous, sitepad, plesk, cpguard, cxs, osm, dareseller, directadmin, whmreseller, jetbackup, whmsonic, virtualizor, hostname, leetssl"
     ;;
 
 esac
